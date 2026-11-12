@@ -134,6 +134,7 @@
             </select></label>
         <label><input type="checkbox" id="anim" checked> Animação</label>
         <label><input type="checkbox" id="snd"> Som</label>
+        <button id="voltar">← Voltar</button>
         <button id="demo">Demo automático</button>
     </div>
     <div class="bar">Arraste o corpo até a área do scanner.</div>
@@ -475,6 +476,12 @@
         document.getElementById('anim').onchange = e => { anim = e.target.checked; };
         snd.onchange = () => { if (snd.checked) initAudio(); gate(prevOn); };
         document.getElementById('demo').onclick = () => { auto = !auto; };
+        /* Botão Voltar: troque o endereço abaixo pela página que você quer acessar (ex.: 'index.html') */
+        const PAGINA_INICIAL = 'historia.html';
+        document.getElementById('voltar').onclick = () => {
+            if (history.length > 1) history.back();
+            else if (PAGINA_INICIAL) location.href = PAGINA_INICIAL;
+        };
         frame();
     </script>
 </body>
